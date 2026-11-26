@@ -1,0 +1,909 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#faf2ed">
+
+  <title>AFTER THE FRAME — A Living Photo Diary</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;1,500;1,600&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+
+<body>
+
+  <!-- PLAYFUL CURSOR -->
+  <div id="cursor" aria-hidden="true"></div>
+
+  <!-- LITTLE FLOATING MESSAGES -->
+  <div id="floatingNote" aria-live="polite"></div>
+
+  <!-- TOP STRIP -->
+  <div class="topbar">
+    <span>AN UNFINISHED COLLECTION OF LITTLE MOMENTS</span>
+    <span>✳ MADE TO BE EXPLORED</span>
+  </div>
+
+  <!-- NAVIGATION -->
+  <nav class="navbar">
+    <a href="#home" class="brand">
+      AFTER <i>THE</i> FRAME<span>✳</span>
+    </a>
+
+    <div class="navlinks">
+      <a href="#gallery">FRAMES</a>
+      <a href="#film">FILM ROLL</a>
+      <a href="#play">PLAYROOM</a>
+      <a href="#archive">ARCHIVE</a>
+      <a href="#about">ABOUT</a>
+    </div>
+
+    <button id="soundBtn" aria-pressed="false">
+      ♫ SOUND OFF
+    </button>
+  </nav>
+
+  <main>
+
+    <!-- HERO -->
+    <section class="hero" id="home">
+
+      <div class="hero-copy">
+        <p class="micro">✳ A PERSONAL PHOTO DIARY / VOL. 01</p>
+
+        <h1>
+          Ordinary<br>
+          things.<br>
+          <em>Extraordinary</em><br>
+          feelings.
+        </h1>
+
+        <p class="hero-description">
+          A little corner for moments that deserve to stay
+          longer. Nothing here needs to be perfectly arranged.
+        </p>
+
+        <a href="#gallery" class="pill dark">
+          WANDER INSIDE <span>↘</span>
+        </a>
+      </div>
+
+      <div class="hero-polaroid" id="heroPolaroid">
+        <div class="tape"></div>
+        <img src="images/photo1.jpeg" alt="Featured photograph">
+        <span>somewhere between then & now ♡</span>
+      </div>
+
+      <span class="hero-star">✳</span>
+
+      <span class="hero-scribble">
+        this is where<br>
+        the magic lives ↗
+      </span>
+
+      <div class="hero-bottom">
+        <span>SCROLL SLOWLY</span>
+        <span class="down-arrow">↓</span>
+        <span>THERE'S NO RIGHT WAY THROUGH</span>
+      </div>
+
+    </section>
+
+    <!-- MOVING TEXT -->
+    <div class="marquee">
+      <div>
+        LOOK CLOSER ✳ NOTICE MORE ✳ COLLECT MOMENTS ✳
+        LOOK CLOSER ✳ NOTICE MORE ✳ COLLECT MOMENTS ✳
+      </div>
+    </div>
+
+    <!-- PHOTOGRAPHY GALLERY -->
+    <section class="section gallery-section" id="gallery">
+
+      <div class="section-head">
+        <div>
+          <p class="micro">01 / OPEN THE COLLECTION</p>
+          <h2>A little <em>out of order.</em></h2>
+        </div>
+
+        <p>
+          Six frames. Endless ways to see them.<br>
+          Click one to get lost in it.
+        </p>
+      </div>
+
+      <div class="gallery-actions">
+
+        <div class="filters">
+          <button class="active" data-filter="all">ALL FRAMES</button>
+          <button data-filter="people">PEOPLE</button>
+          <button data-filter="places">PLACES</button>
+          <button data-filter="details">DETAILS</button>
+        </div>
+
+        <button class="text-button" id="shuffleBtn">
+          ↝ SHUFFLE THE FRAMES
+        </button>
+
+      </div>
+
+      <div class="gallery" id="galleryGrid">
+
+        <button class="frame tall"
+                data-category="places"
+                data-caption="Somewhere between here and there.">
+          <span class="frame-image">
+            <img src="images/photo1.jpeg" alt="A captured place">
+          </span>
+          <span class="frame-label">01 / PLACES <b>↗</b></span>
+          <i>Somewhere between here and there.</i>
+        </button>
+
+        <button class="frame"
+                data-category="people"
+                data-caption="A story in someone's eyes.">
+          <span class="frame-image">
+            <img src="images/photo2.jpg" alt="A portrait moment">
+          </span>
+          <span class="frame-label">02 / PEOPLE <b>↗</b></span>
+          <i>A story in someone's eyes.</i>
+        </button>
+
+        <button class="frame short"
+                data-category="details"
+                data-caption="The things we almost miss.">
+          <span class="frame-image">
+            <img src="images/photo3.jpg" alt="An overlooked detail">
+          </span>
+          <span class="frame-label">03 / DETAILS <b>↗</b></span>
+          <i>The things we almost miss.</i>
+        </button>
+
+        <button class="frame short"
+                data-category="places"
+                data-caption="A place worth remembering.">
+          <span class="frame-image">
+            <img src="images/photo4.jpg" alt="A memorable place">
+          </span>
+          <span class="frame-label">04 / PLACES <b>↗</b></span>
+          <i>A place worth remembering.</i>
+        </button>
+
+        <button class="frame"
+                data-category="people"
+                data-caption="A passing little moment.">
+          <span class="frame-image">
+            <img src="images/photo5.jpg" alt="A human moment">
+          </span>
+          <span class="frame-label">05 / PEOPLE <b>↗</b></span>
+          <i>A passing little moment.</i>
+        </button>
+
+        <button class="frame tall"
+                data-category="details"
+                data-caption="An ordinary kind of magic.">
+          <span class="frame-image">
+            <img src="images/photo6.jpg" alt="A beautiful detail">
+          </span>
+          <span class="frame-label">06 / DETAILS <b>↗</b></span>
+          <i>An ordinary kind of magic.</i>
+        </button>
+
+      </div>
+
+      <p class="micro centered">
+        ✳ NOTHING HERE HAS TO STAY IN THE SAME ORDER
+      </p>
+
+    </section>
+
+    <!-- INTERACTIVE FILM ROLL -->
+    <section class="film-section" id="film">
+
+      <div class="section-head">
+        <div>
+          <p class="micro">02 / THE FILM ROLL</p>
+          <h2>Roll through <em>time.</em></h2>
+        </div>
+
+        <p>
+          Grab the film and drag it sideways.<br>
+          Click a frame to open the photograph.
+        </p>
+      </div>
+
+      <div class="film-controls">
+        <span>35MM / A COLLECTION OF MOMENTS</span>
+
+        <div>
+          <button id="filmPrev" aria-label="Scroll film left">←</button>
+          <button id="filmNext" aria-label="Scroll film right">→</button>
+        </div>
+      </div>
+
+      <div class="film-track" id="filmTrack">
+
+        <button class="film-frame" data-photo="0">
+          <span class="film-picture">
+            <img src="images/photo1.jpeg" alt="Film photo one" draggable="false">
+          </span>
+          <span>FRAME 001</span>
+        </button>
+
+        <button class="film-frame" data-photo="1">
+          <span class="film-picture">
+            <img src="images/photo2.jpg" alt="Film photo two" draggable="false">
+          </span>
+          <span>FRAME 002</span>
+        </button>
+
+        <button class="film-frame" data-photo="2">
+          <span class="film-picture">
+            <img src="images/photo3.jpg" alt="Film photo three" draggable="false">
+          </span>
+          <span>FRAME 003</span>
+        </button>
+
+        <button class="film-frame" data-photo="3">
+          <span class="film-picture">
+            <img src="images/photo4.jpg" alt="Film photo four" draggable="false">
+          </span>
+          <span>FRAME 004</span>
+        </button>
+
+        <button class="film-frame" data-photo="4">
+          <span class="film-picture">
+            <img src="images/photo5.jpg" alt="Film photo five" draggable="false">
+          </span>
+          <span>FRAME 005</span>
+        </button>
+
+        <button class="film-frame" data-photo="5">
+          <span class="film-picture">
+            <img src="images/photo6.jpg" alt="Film photo six" draggable="false">
+          </span>
+          <span>FRAME 006</span>
+        </button>
+
+      </div>
+
+      <div class="film-footer">
+        <span>← DRAG TO EXPLORE →</span>
+        <span>AFTER THE FRAME / 2026</span>
+      </div>
+
+    </section>
+
+    <!-- CINEMATIC QUOTE -->
+    <section class="quote">
+
+      <div class="stamp">
+        A NOTE<br>
+        TO SELF
+      </div>
+
+      <p>
+        “Maybe the magic was never in the big things.<br>
+        Maybe it was in <em>noticing.</em>”
+      </p>
+
+      <small>— SOMEWHERE BETWEEN TWO FRAMES</small>
+
+    </section>
+
+    <!-- DRAGGABLE SCRAPBOOK -->
+    <section class="section play-section" id="play">
+
+      <div class="section-head">
+        <div>
+          <p class="micro">03 / YOUR LITTLE PLAYROOM</p>
+          <h2>Go ahead. <em>Make a mess.</em></h2>
+        </div>
+
+        <p>
+          Drag the photographs around.<br>
+          Make your own tiny scrapbook.
+        </p>
+      </div>
+
+      <div class="playbar">
+        <span>✳ GRAB A PHOTO & MOVE IT AROUND</span>
+        <button id="resetBoard" class="text-button">
+          RESET THE BOARD ↺
+        </button>
+      </div>
+
+      <div class="board" id="board">
+
+        <span class="board-note note-one">keep this one ♡</span>
+        <span class="board-note note-two">remember this?</span>
+        <span class="board-star">✳</span>
+
+        <div class="polaroid p1" data-angle="-9">
+          <img src="images/photo2.jpg" alt="Memory one" draggable="false">
+          <span>little moments</span>
+        </div>
+
+        <div class="polaroid p2" data-angle="8">
+          <img src="images/photo4.jpg" alt="Memory two" draggable="false">
+          <span>somewhere else</span>
+        </div>
+
+        <div class="polaroid p3" data-angle="-5">
+          <img src="images/photo6.jpg" alt="Memory three" draggable="false">
+          <span>almost forgotten</span>
+        </div>
+
+        <div class="polaroid p4" data-angle="7">
+          <img src="images/photo3.jpg" alt="Memory four" draggable="false">
+          <span>found this ♡</span>
+        </div>
+
+      </div>
+
+    </section>
+
+    <!-- SURPRISE ME -->
+    <section class="surprise-section">
+
+      <p class="micro">04 / A LITTLE BIT OF CHANCE</p>
+
+      <h2>
+        Let the universe<br>
+        <em>pick a frame.</em>
+      </h2>
+
+      <button id="surpriseBtn" class="pill rose">
+        SURPRISE ME <span>↗</span>
+      </button>
+
+      <p id="surpriseCaption">
+        One click. One random memory.
+      </p>
+
+      <span class="surprise-star">✳</span>
+
+    </section>
+
+    <!-- SECRET ARCHIVE -->
+    <section class="section archive-section" id="archive">
+
+      <div class="section-head">
+        <div>
+          <p class="micro">05 / THE SECRET ARCHIVE</p>
+          <h2>Things <em>left unsaid.</em></h2>
+        </div>
+
+        <p>
+          Not every memory needs a photograph.<br>
+          Sometimes a little note is enough.
+        </p>
+      </div>
+
+      <div class="archive-layout">
+
+        <button class="envelope" id="envelope"
+                aria-label="Open hidden message">
+          <span class="envelope-flap"></span>
+          <span class="envelope-heart">♡</span>
+          <span class="envelope-label">OPEN ME</span>
+        </button>
+
+        <div class="archive-note">
+          <span class="micro">
+            FROM THE ARCHIVE / NO. <span id="noteNumber">00</span>
+          </span>
+
+          <p id="secretText">
+            There is a little something hidden inside this envelope.
+            Go on, open it.
+          </p>
+
+          <button class="text-button" id="nextNote">
+            ANOTHER NOTE ↝
+          </button>
+        </div>
+
+      </div>
+
+    </section>
+
+    <!-- INTERACTIVE PHOTO QUIZ -->
+    <section class="quiz-section">
+
+      <div class="quiz-content">
+
+        <p class="micro">06 / A VERY SERIOUS QUESTION</p>
+
+        <h2>
+          What makes a<br>
+          <em>good photograph?</em>
+        </h2>
+
+        <p>Choose one. No pressure (okay, a little).</p>
+
+        <div class="answers">
+          <button data-right="no">
+            01　A really expensive camera
+          </button>
+
+          <button data-right="yes">
+            02　A feeling you want to keep
+          </button>
+
+          <button data-right="no">
+            03　The most perfect pose
+          </button>
+        </div>
+
+        <p id="quizResult" aria-live="polite">
+          YOUR ANSWER GOES HERE ♡
+        </p>
+
+      </div>
+
+      <div class="quiz-sticker">
+        YOU<br>GOT<br>THIS ✳
+      </div>
+
+    </section>
+
+    <!-- INTERACTIVE PHOTO BOOTH -->
+    <section class="section booth-section" id="photobooth">
+
+      <div class="section-head">
+        <div>
+          <p class="micro">07 / THE LITTLE PHOTO BOOTH</p>
+          <h2>Take home <em>a memory.</em></h2>
+        </div>
+
+        <p>
+          Your favourite frames, but make them a photo strip.
+          Generate one and save it.
+        </p>
+      </div>
+
+      <div class="booth-layout">
+
+        <div class="booth-intro">
+
+          <div class="booth-stamp">✳<br>JUST<br>FOR YOU</div>
+
+          <p class="micro">WELCOME TO THE PHOTO BOOTH</p>
+
+          <h3>
+            Four frames.<br>
+            One little <em>keepsake.</em>
+          </h3>
+
+          <p>
+            Hit the button and I'll pick four random photographs
+            from the collection and turn them into a mini
+            photo booth strip.
+          </p>
+
+          <button id="createStrip" class="pill dark">
+            ✳ MAKE MY PHOTO STRIP
+          </button>
+
+          <button id="saveStrip" class="outline-button" disabled>
+            ↓ SAVE PHOTO STRIP
+          </button>
+
+          <p id="boothStatus" aria-live="polite">
+            Your photo strip will appear here.
+          </p>
+
+        </div>
+
+        <div class="booth-preview">
+          <div class="booth-tape"></div>
+
+          <canvas
+            id="boothCanvas"
+            width="420"
+            height="1390"
+            aria-label="Your generated four photograph strip">
+          </canvas>
+
+          <span class="booth-handwriting">
+            a little something<br>to remember ♡
+          </span>
+        </div>
+
+      </div>
+
+    </section>
+
+    <!-- ABOUT -->
+    <section class="section about-section" id="about">
+
+      <div class="about-photo">
+        <img id="aboutPhoto" src="images/photo5.jpg" alt="Portrait of the photographer">
+        <span>THE PERSON BEHIND THE FRAMES ↗</span>
+      </div>
+
+      <div class="about-content">
+        <p class="micro">08 / A LITTLE INTRODUCTION</p>
+
+        <h2>
+          Hi, from this<br>
+          <em>side of the lens.</em>
+        </h2>
+
+        <p>
+          I photograph the ordinary, the overlooked, the in-between.
+          This is my little world of frames, stories, and things
+          I couldn't walk past without capturing.
+        </p>
+
+        <a class="text-button link"
+           href="https://instagram.com/__tinymoments"
+           target="_blank" rel="noopener noreferrer">
+          FIND ME ON INSTAGRAM ↗
+        </a>
+      </div>
+
+    </section>
+
+    <!-- CONTACT -->
+    <section class="contact-section">
+
+      <p class="micro">HAVE A MOMENT IN MIND?</p>
+
+      <h2>
+        Let's make it<br>
+        <em>something to keep.</em>
+      </h2>
+
+      <a class="pill dark"
+         href="https://wa.me/923333213148"
+         target="_blank" rel="noopener noreferrer">
+        LET'S TALK ON WHATSAPP ↗
+      </a>
+
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <a class="brand" href="#home">AFTER <i>THE</i> FRAME ✳</a>
+    <span>MADE OF LITTLE MOMENTS.</span>
+
+    <a href="https://instagram.com/__tinymoments"
+       target="_blank" rel="noopener noreferrer">
+      @__tinymoments ↗
+    </a>
+
+    <span>© 2026</span>
+  </footer>
+
+  <!-- GALLERY LIGHTBOX -->
+  <div class="lightbox" id="lightbox"
+       role="dialog"
+       aria-label="Photograph viewer"
+       aria-hidden="true">
+
+    <button id="closeLightbox" class="lightbox-close"
+            aria-label="Close photograph">×</button>
+
+    <button id="previousPhoto" class="lightbox-prev"
+            aria-label="Previous photograph">←</button>
+
+    <figure>
+      <img id="bigPhoto" alt="Enlarged photograph">
+
+      <figcaption>
+        <span id="photoCount"></span>
+        <span id="photoCaption"></span>
+      </figcaption>
+    </figure>
+
+    <button id="nextPhoto" class="lightbox-next"
+            aria-label="Next photograph">→</button>
+
+  </div>
+
+  <div id="toast" class="toast" role="status"></div>
+
+  <!-- PHOTO UPLOAD PANEL -->
+  <style>
+    #photoSetupBtn {
+      position: fixed;
+      right: 20px;
+      bottom: 20px;
+      z-index: 200000;
+      background: #342b30;
+      color: #fff;
+      border: 1px solid #d5ad76;
+      padding: 14px 20px;
+      border-radius: 30px;
+      cursor: pointer;
+      font: 12px Arial, sans-serif;
+    }
+
+    #photoSetupPanel {
+      position: fixed;
+      right: 20px;
+      bottom: 80px;
+      z-index: 200001;
+      width: min(310px, calc(100vw - 40px));
+      max-height: 75vh;
+      overflow-y: auto;
+      background: #f8f0e9;
+      color: #342b30;
+      border: 2px solid #d5ad76;
+      border-radius: 16px;
+      padding: 22px;
+      box-shadow: 0 15px 50px #0004;
+      font-family: Arial, sans-serif;
+    }
+
+    #photoSetupPanel[hidden] {
+      display: none;
+    }
+
+    #photoSetupPanel h3 {
+      margin: 0 0 10px;
+    }
+
+    #photoSetupPanel p {
+      font-size: 12px;
+      line-height: 1.5;
+    }
+
+    .photoSetupRow {
+      display: block;
+      margin: 14px 0;
+      font-size: 13px;
+      font-weight: bold;
+    }
+
+    .photoSetupRow input {
+      display: block;
+      width: 100%;
+      margin-top: 6px;
+      font-size: 12px;
+    }
+
+    #closePhotoSetup {
+      background: #342b30;
+      color: white;
+      border: 0;
+      padding: 10px 18px;
+      cursor: pointer;
+      margin-top: 10px;
+    }
+  </style>
+
+  <button id="photoSetupBtn" type="button">
+    📷 ADD MY PHOTOS
+  </button>
+
+  <div id="photoSetupPanel" hidden>
+    <h3>My Photography ♡</h3>
+    <p>
+      Choose your original photos.
+      They will appear automatically
+      across your website.
+    </p>
+
+    <div id="photoSetupInputs"></div>
+
+    <label class="photoSetupRow">
+      PERSON BEHIND THE FRAME — YOUR PORTRAIT
+      <input id="aboutPhotoInput" type="file" accept="image/*">
+    </label>
+
+    <p id="photoSetupStatus"></p>
+
+    <button id="closePhotoSetup" type="button">
+      DONE ♡
+    </button>
+  </div>
+
+  <script>
+    (() => {
+      const button = document.getElementById("photoSetupBtn");
+      const panel = document.getElementById("photoSetupPanel");
+      const inputs = document.getElementById("photoSetupInputs");
+      const aboutPhotoInput = document.getElementById("aboutPhotoInput");
+      const status = document.getElementById("photoSetupStatus");
+
+      const photos = {};
+      let aboutPhotoUrl = null;
+
+      const names = [
+        "Homepage — Old Doorway",
+        "Little Girl",
+        "Golden Water Reflection",
+        "Historic Architecture",
+        "Walking Figure",
+        "Apples"
+      ];
+
+      names.forEach((name, index) => {
+        const number = index + 1;
+
+        const label = document.createElement("label");
+        label.className = "photoSetupRow";
+        label.textContent = number + ". " + name;
+
+        const input = document.createElement("input");
+        input.type = "file";
+        input.accept = "image/*";
+
+        input.addEventListener("change", async () => {
+          const file = input.files[0];
+          if (!file) return;
+
+          showPhoto(number, file);
+
+          try {
+            await savePhoto(number, file);
+            status.textContent = "Photo " + number + " saved ✓";
+          } catch (error) {
+            status.textContent =
+              "Photo displayed, but browser storage is unavailable.";
+          }
+        });
+
+        label.appendChild(input);
+        inputs.appendChild(label);
+      });
+
+      aboutPhotoInput.addEventListener("change", async () => {
+        const file = aboutPhotoInput.files[0];
+        if (!file) return;
+
+        showAboutPhoto(file);
+
+        try {
+          await savePhoto("about", file);
+          status.textContent = "Your portrait saved ✓";
+        } catch (error) {
+          status.textContent =
+            "Your portrait is displayed, but browser storage is unavailable.";
+        }
+      });
+
+      function showPhoto(number, file) {
+        if (photos[number]) {
+          URL.revokeObjectURL(photos[number]);
+        }
+
+        photos[number] = URL.createObjectURL(file);
+        updatePhotos();
+      }
+
+      function showAboutPhoto(file) {
+        const image = document.getElementById("aboutPhoto");
+        if (!image) return;
+
+        if (aboutPhotoUrl) URL.revokeObjectURL(aboutPhotoUrl);
+        aboutPhotoUrl = URL.createObjectURL(file);
+        image.src = aboutPhotoUrl;
+      }
+
+      function updatePhotos() {
+        document.querySelectorAll("img").forEach(img => {
+          if (img.id === "aboutPhoto") return;
+
+          const source = img.getAttribute("src") || "";
+          const match = source.match(
+            /photo([1-6])\.(jpg|jpeg|png|webp)/i
+          );
+
+          if (match) {
+            img.dataset.myPhoto = match[1];
+          }
+
+          const number = Number(img.dataset.myPhoto);
+
+          if (photos[number] && img.src !== photos[number]) {
+            img.src = photos[number];
+          }
+        });
+      }
+
+      let databasePromise;
+
+      function getDatabase() {
+        if (!databasePromise) {
+          databasePromise = new Promise((resolve, reject) => {
+            const request = indexedDB.open(
+              "AfterTheFramePhotos",
+              1
+            );
+
+            request.onupgradeneeded = () => {
+              request.result.createObjectStore("photos");
+            };
+
+            request.onsuccess = () => resolve(request.result);
+            request.onerror = () => reject(request.error);
+          });
+        }
+
+        return databasePromise;
+      }
+
+      async function savePhoto(key, file) {
+        const db = await getDatabase();
+
+        return new Promise((resolve, reject) => {
+          const transaction = db.transaction(
+            "photos",
+            "readwrite"
+          );
+
+          transaction.objectStore("photos").put(file, key);
+          transaction.oncomplete = resolve;
+          transaction.onerror = () => reject(transaction.error);
+        });
+      }
+
+      async function restorePhotos() {
+        try {
+          const db = await getDatabase();
+
+          for (let number = 1; number <= 6; number++) {
+            const file = await new Promise((resolve, reject) => {
+              const transaction = db.transaction(
+                "photos",
+                "readonly"
+              );
+
+              const request = transaction
+                .objectStore("photos")
+                .get(number);
+
+              request.onsuccess = () => resolve(request.result);
+              request.onerror = () => reject(request.error);
+            });
+
+            if (file) showPhoto(number, file);
+          }
+
+          const aboutFile = await new Promise((resolve, reject) => {
+            const transaction = db.transaction("photos", "readonly");
+            const request = transaction.objectStore("photos").get("about");
+
+            request.onsuccess = () => resolve(request.result);
+            request.onerror = () => reject(request.error);
+          });
+
+          if (aboutFile) showAboutPhoto(aboutFile);
+        } catch (error) {
+          console.warn("Photos could not be restored:", error);
+        }
+      }
+
+      const observer = new MutationObserver(updatePhotos);
+      observer.observe(document.body, {
+        childList: true,
+        subtree: true
+      });
+
+      button.addEventListener("click", () => {
+        panel.hidden = !panel.hidden;
+      });
+
+      document.getElementById("closePhotoSetup")
+        .addEventListener("click", () => {
+          panel.hidden = true;
+        });
+
+      restorePhotos();
+    })();
+  </script>
+
+</body>
+</html>
