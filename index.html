@@ -14,6 +14,59 @@
 
   <link rel="stylesheet" href="style.css">
   <script src="script.js" defer></script>
+  <script>
+(() => {
+  const photos = {
+    1: ["photo1.jpeg", "photo1.jpg", "doorway.jpg.jpg", "doorway.jpg"],
+    2: ["photo2.jpg", "child.jpg.jpg", "child.jpg"],
+    3: ["photo3.jpg", "puddle.jpg.jpg", "puddle.jpg"],
+    4: ["photo4.jpg", "building.jpg.jpg", "building.jpg"],
+    5: ["photo5.png", "photo5.jpg", "edited-photo.png.png", "edited-photo.png"],
+    6: ["photo6.jpg", "tomatoes.jpg.jpg", "tomatoes.jpg"],
+    about: ["photographer.webp", "photographer.jpg.webp", "photographer.jpg"]
+  };
+
+  const attempts = new WeakMap();
+
+  function fix(img) {
+    if (!(img instanceof HTMLImageElement)) return;
+
+    let state = attempts.get(img);
+
+    if (!state) {
+      const match = img.src.match(/\/photo([1-6])\./);
+      const key = img.id === "aboutPhoto"
+        ? "about" : match?.[1];
+
+      if (!photos[key]) return;
+
+      state = { files: photos[key], tried: new Set() };
+      attempts.set(img, state);
+    }
+
+    state.tried.add(img.src);
+
+    for (const file of state.files) {
+      const url = new URL("images/" + file, document.baseURI).href;
+
+      if (!state.tried.has(url)) {
+        state.tried.add(url);
+        img.src = url;
+        return;
+      }
+    }
+  }
+
+  document.addEventListener("error", e => fix(e.target), true);
+
+  document.addEventListener("DOMContentLoaded", () => {
+    const portrait = document.getElementById("aboutPhoto");
+    if (portrait && /\/photo[1-6]\./.test(portrait.src)) {
+      fix(portrait);
+    }
+  });
+})();
+</script>
 </head>
 
 <body>
